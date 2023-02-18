@@ -9,6 +9,8 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { FacturaComponent } from './components/factura/factura.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     LayoutModule,
     AppRoutingModule,
+    HttpClientModule,
+    MatPaginatorModule,
     BrowserAnimationsModule
   ],
   providers: [],

@@ -23,7 +23,7 @@ body {
 
 main {
   background-color: #000029;
-  /* border: 10px solid red; */
+  border: 10px solid red;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -114,7 +114,7 @@ a.navbar-brand:hover {
   display: flex;
   flex-wrap: wrap;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  /* border: 10px solid red; */
+  border: 10px solid red;
 }
 
 .card {
@@ -207,3 +207,16 @@ button.btn-outline-warning{
   animation: anim 2.8s infinite ease-in-out;
   color: black;
 }
+
+div.container2{
+  position: relative;
+}
+
+div.paginador{
+  position: block;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+}
+
+
