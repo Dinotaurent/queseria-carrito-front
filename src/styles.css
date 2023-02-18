@@ -1,1 +1,209 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+  position: relative;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+  margin-bottom: 40px;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+main {
+  background-color: #000029;
+  /* border: 10px solid red; */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+}
+
+.container {
+  margin: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* border: 10px solid red; */
+}
+.item {
+  flex: 1 1 100px;
+}
+
+.parent {
+  display: grid;
+  grid:
+    "header" auto
+    "main" auto
+    "footer " 60px;
+}
+.child:nth-child(1) {
+  grid-area: header;
+}
+.child:nth-child(2) {
+  grid-area: main;
+}
+.child:nth-child(3) {
+  grid-area: footer;
+}
+
+nav {
+  /* background-color: #3b3355; */
+  background: linear-gradient(90deg, #321212, #333d8a)
+}
+
+nav .navbar-brand {
+  font-size: 2em;
+  font-weight: 900;
+  background-image: linear-gradient(to right, #f1c40f, #ff5733);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-family: cursive;
+}
+nav .nav-link {
+  color: #ff5733;
+  font-size: 18px;
+  font-weight: 400;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+li.nav-item .nav-link.active {
+  color: #18a1ff;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+a.nav-link:hover {
+  color: #3cebc5;
+  transition: 0.4s;
+}
+
+a.navbar-brand:hover {
+  background-image: linear-gradient(to right, #3cebc5, #5529f5);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 34px;
+  font-weight: 900;
+  transition: 0.4s;
+}
+
+.grid-container {
+  margin: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* border: 10px solid red; */
+}
+
+.card {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  margin: 30px;
+  background: linear-gradient(90deg, #2cd9ff, #7effb2);
+  background-size: 400% 400%;
+  animation: anim 2.8s infinite ease-in-out;
+}
+
+@keyframes anim {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.btn-primary{
+  background: linear-gradient(90deg, #003ab7, #489aff);
+}
+.btn-primary:hover{
+  background: linear-gradient(90deg, #489aff, #104dd2);
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+.mat-card-content {
+  overflow: hidden;
+}
+
+button.btn-success{
+  margin: 20px 10px 2px 20px;
+  background: linear-gradient(90deg, hsl(143, 76%, 63%), #0bc71d);
+  color: black;
+}
+
+.btn-success:hover{
+  background: linear-gradient(90deg, #0bc71d, hsl(143, 76%, 63%));
+}
+
+
+button.btn-secondary{
+  margin: 20px 10px 2px 20px;
+  background: linear-gradient(90deg, #2d205f, #06a9db);
+  background-size: 400% 400%;
+  animation: anim 2.8s infinite ease-in-out;
+}
+
+
+svg {
+  width: 35px;
+  height: 30px;
+}
+
+a.btn-primary{
+  margin: 2px 2px 2px 2px;
+}
+
+a.btn-warning{
+  margin: 2px 2px 2px 2px;
+  background: linear-gradient(90deg, #ffbb00, #edf097);
+}
+
+.btn-warning:hover{
+  background: linear-gradient(90deg, #edf097, #ffbb00);
+}
+
+a.btn-danger{
+  margin: 2px 2px 2px 2px;
+  background: linear-gradient(90deg, #ff4102bd, #fa1a55);
+}
+
+.btn-danger:hover{
+  background: linear-gradient(90deg, #fa1a55, #ff4102bd);
+}
+
+button.btn-outline-warning{
+  background: linear-gradient(90deg, #ffbb00,  #ff5733);
+  background-size: 400% 400%;
+  animation: anim 2.8s infinite ease-in-out;
+  color: black;
+}
