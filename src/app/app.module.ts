@@ -11,6 +11,8 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ProductoFormComponent } from './components/productos/producto-form.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,6 +22,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ProductosComponent,
     FacturaComponent,
     RegistroComponent,
+    ProductoFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     AppRoutingModule,
     HttpClientModule,
     MatPaginatorModule,
+    FormsModule,
     BrowserAnimationsModule
   ],
   providers: [],

@@ -1,0 +1,90 @@
+<button
+  type="button-agregar"
+  class="btn btn-secondary"
+  routerLink="/productos"
+>
+  Regresar
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke-width="1.5"
+    stroke="currentColor"
+    class="w-6 h-6"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
+    />
+  </svg>
+</button>
+
+<div class="mb-3 m-5">
+  <h1>{{ titulo }}</h1>
+</div>
+<div class="container">
+  <form>
+    <div class="mb-3 m-5">
+      <label class="form-label" for="nombre">Nombre del producto</label>
+      <input
+        type="text"
+        class="form-control"
+        name="nombre"
+        [(ngModel)]="model.nombre"
+        placeholder="Nombre del producto"
+      />
+      <div class="alert alert-danger" *ngIf="error?.nombre">
+        {{ error.nombre }}
+      </div>
+    </div>
+    <div class="mb-3 m-5">
+      <label class="form-label" for="precio">Precio del producto</label>
+      <input
+        type="number"
+        step="1"
+        min="999"
+        class="form-control"
+        name="precio"
+        [(ngModel)]="model.precio"
+      />
+      <div class="alert alert-danger" *ngIf="error?.precio">
+        {{ error.precio }}
+      </div>
+    </div>
+
+    <div class="mb-3 m-5" *ngIf="!model.fotoHashCode && model?.id">
+      <img
+      src="../../../assets/img/no-foto.jpg"
+      class="img-thumbnail">
+    </div>
+    <div class="mb-3 m-5" *ngIf="model?.fotoHashCode && model?.id">
+      <label class="form-label" for="fotoAnterior">Foto anterior</label>
+      <div class="mb-2 m-2">
+      <img
+      [src]="URL + 'ver-foto/' + model.id + '?fotoHashCode=' + model.fotoHashCode"
+      class="img-thumbnail">
+      </div>
+    </div>
+
+
+    <div class="mb-3 m-5">
+      <label class="form-label" for="foto">Foto</label>
+      <input (change)="subirFoto($event)"
+        type="file"
+        class="form-control"
+        id="foto"
+        aria-describedby="inputGroupFileAddon04"
+        aria-label="Upload"
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary mb-3 m-5"
+      (click)="model.id ? editar() : crear()"
+    >
+      Guardar
+    </button>
+  </form>
+</div>

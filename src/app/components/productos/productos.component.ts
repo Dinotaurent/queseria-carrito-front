@@ -4,25 +4,27 @@ import { ProductosService } from './../../services/productos.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import Swal from 'sweetalert2';
+import { URL_BASE } from 'src/app/config/app';
 
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html'
 })
 export class ProductosComponent implements OnInit{
+  URL = `${URL_BASE}productos/`;
   titulo = "Lista de productos"
   productos: Producto[] = [];
   datosFiltrados: Producto[] = [];
   listaFiltrada: Producto[] = [];
   totalRegistros = 0;
   paginaActual = 0;
-  totalXPagina = 9;
+  totalXPagina = 8;
   pageSizeOptions: number[] = [4, 8, 16, 32, 100];
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
-  constructor(private http: HttpClient, private service: ProductosService){
+  constructor(private service: ProductosService){
   }
   ngOnInit(): void {
     this.calcularRangos();

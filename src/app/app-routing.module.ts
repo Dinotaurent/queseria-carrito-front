@@ -1,3 +1,4 @@
+import { ProductoFormComponent } from './components/productos/producto-form.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { HomeComponent } from './components/home/home.component';
@@ -8,6 +9,8 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'inicio' },
   { path: 'inicio', component: HomeComponent },
   { path: 'productos', component: ProductosComponent },
+  { path: 'productos/form', component: ProductoFormComponent },
+  { path: 'productos/form/:id', component: ProductoFormComponent },
   { path: 'registros', component: RegistroComponent },
 ];
 
