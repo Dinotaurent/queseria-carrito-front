@@ -1,3 +1,4 @@
+import { FacturaFormComponent } from './components/factura/factura-form.component';
 import { ProductoFormComponent } from './components/productos/producto-form.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { ProductosComponent } from './components/productos/productos.component';
@@ -11,6 +12,8 @@ const routes: Routes = [
   { path: 'productos', component: ProductosComponent },
   { path: 'productos/form', component: ProductoFormComponent },
   { path: 'productos/form/:id', component: ProductoFormComponent },
+  { path: 'facturas/form', component: FacturaFormComponent },
+  { path: 'facturas/form/:id', component: FacturaFormComponent },
   { path: 'registros', component: RegistroComponent },
 ];
 

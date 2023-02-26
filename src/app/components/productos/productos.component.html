@@ -88,7 +88,7 @@
         {{ producto.precio | currency : "COP" : "symbol-narrow" : "1.0-0" }}
       </h5>
       <h5>Cantidad disponible : {{producto.disponibles}}</h5>
-      <a  class="btn btn-primary"
+      <a  class="btn btn-primary" (click)="agregarAFactura(producto)"
         >Agregar<svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

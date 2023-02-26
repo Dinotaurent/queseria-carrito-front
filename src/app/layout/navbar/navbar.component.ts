@@ -1,9 +1,26 @@
-import { Component } from '@angular/core';
+import { Factura } from './../../models/factura';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { filter, map, switchMap, tap } from 'rxjs';
+import { FacturaService } from 'src/app/services/factura.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-navbar',
-  templateUrl: './navbar.component.html'
+  templateUrl: './navbar.component.html',
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
+  // model = new Factura();
+  facturaId: number;
+  constructor(private facturaService: FacturaService) {}
 
+  ngOnInit(): void {
+    this.facturaService.facturaId$
+      .pipe(
+        tap((facturaId) => {
+          this.facturaId = facturaId;
+        })
+      )
+      .subscribe();
+  }
 }

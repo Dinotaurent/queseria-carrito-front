@@ -194,7 +194,7 @@ a.btn-danger{
   background: linear-gradient(90deg, #fa1a55, #ff4102bd);
 }
 
-button.btn-outline-warning{
+a.btn-outline-warning{
   background: linear-gradient(90deg, #ffbb00,  #ff5733);
   background-size: 400% 400%;
   animation: anim 2.8s infinite ease-in-out;

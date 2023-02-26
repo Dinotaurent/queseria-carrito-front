@@ -1,3 +1,4 @@
+import { FacturaService } from './services/factura.service';
 import { LayoutModule } from './layout/layout.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ProductoFormComponent } from './components/productos/producto-form.component';
 import { FormsModule } from '@angular/forms';
+import { FacturaFormComponent } from './components/factura/factura-form.component';
 
 
 @NgModule({
@@ -23,6 +25,7 @@ import { FormsModule } from '@angular/forms';
     FacturaComponent,
     RegistroComponent,
     ProductoFormComponent,
+    FacturaFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [FacturaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
