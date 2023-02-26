@@ -24,7 +24,7 @@
   class="btn btn-secondary"
   routerLink="/productos/form"
 >
-  Agregar 10
+  Agregar 5
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -45,7 +45,7 @@
   class="btn btn-secondary"
   routerLink="/productos/form"
 >
-  Restar 10
+  Restar 5
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -83,11 +83,12 @@
 
 
     <div class="card-body">
-      <h5 class="card-title">{{ producto.nombre }}</h5>
-      <p class="card-text">
+      <h3 class="card-title">{{ producto.nombre }}</h3>
+      <h5 class="card-text">
         {{ producto.precio | currency : "COP" : "symbol-narrow" : "1.0-0" }}
-      </p>
-      <a href="#" class="btn btn-primary"
+      </h5>
+      <h5>Cantidad disponible : {{producto.disponibles}}</h5>
+      <a  class="btn btn-primary"
         >Agregar<svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

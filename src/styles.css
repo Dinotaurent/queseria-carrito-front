@@ -107,7 +107,7 @@ a.navbar-brand:hover {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   justify-content: space-evenly;
   /* height: 100%; */
-  border: 10px solid red;
+  /* border: 10px solid red; */
 }
 
 .card {

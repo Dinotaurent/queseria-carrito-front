@@ -4,4 +4,5 @@ export class Producto {
   precio!: number;
   createAt!: number;
   fotoHashCode!: number;
+  disponibles!: number;
 }
