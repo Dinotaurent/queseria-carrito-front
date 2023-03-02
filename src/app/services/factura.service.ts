@@ -31,10 +31,7 @@ export class FacturaService {
     });
   }
 
-  public asignarProducto(
-    id: number,
-    producto: Producto
-  ): Observable<Factura> {
+  public asignarProducto(id: number, producto: Producto): Observable<Factura> {
     return this.http.put<Factura>(
       `${this.URL}${id}/asignar-producto`,
       producto,

@@ -63,6 +63,18 @@ export class ProductosService {
     return this.http.put<Producto>(`${this.URL}actualizar-con-foto/${producto.id}`, formData);
   }
 
+  public agregarDiez(): Observable<void> {
+    return this.http.put<void>(`${this.URL}agregar-10`, {
+      headers: this.headers,
+    });
+  }
+
+  public restarCinco(productos: Producto[]): Observable<Producto[]> {
+    return this.http.put<Producto[]>(`${this.URL}restar-5`, productos, {
+      headers: this.headers,
+    });
+  }
+
   public eliminar(id: number): Observable<void> {
     return this.http.delete<void>(`${this.URL}${id}`);
   }

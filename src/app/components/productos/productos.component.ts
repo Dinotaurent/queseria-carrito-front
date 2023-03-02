@@ -53,8 +53,8 @@ export class ProductosComponent implements OnInit {
               icon: 'info',
               title: 'Factura iniciada!',
               showConfirmButton: false,
-              timer: 2000
-            })
+              timer: 2000,
+            });
             return this.facturaService.listarXId(factura.id);
           })
         )
@@ -103,15 +103,65 @@ export class ProductosComponent implements OnInit {
     }
   }
 
-  agregarAFactura(producto: Producto){
-    this.facturaService.asignarProducto(this.facturaId,producto).subscribe(() => {
-      Swal.fire({
-        icon: 'success',
-        title: 'Agregado a la factura',
-        showConfirmButton: false,
-        timer: 1500
-      })
-      this.calcularRangos();
+  agregarAFactura(producto: Producto) {
+    this.facturaService.asignarProducto(this.facturaId, producto).subscribe(
+      () => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Agregado a la factura',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+        this.calcularRangos();
+      },
+      (error: any) => {
+        if (
+          error.error.message ===
+          'No existen productos diponibles para agregar a la factura'
+        ) {
+          Swal.fire({
+            icon: 'error',
+            text: 'No existen productos diponibles para agregar a la factura',
+          });
+        }
+      }
+    );
+  }
+
+  agregarDiez() {
+    Swal.fire({
+      text: 'Seguro quieres agregar 10 productos a cada stock de producto?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, agregar!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.service.agregarDiez().subscribe(() => {
+          this.calcularRangos();
+        });
+        Swal.fire('Agregados!', 'success');
+      }
+    });
+  }
+
+  restarCinco(productos: Producto[]) {
+    Swal.fire({
+      text: 'Seguro quieres remover 5 productos a cada stock producto?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, remover!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.service.restarCinco(productos).subscribe(() => {
+          this.calcularRangos();
+        });
+        Swal.fire('Removidos!', 'success');
+      }
     });
   }
 
