@@ -19,11 +19,7 @@
     />
   </svg>
 </button>
-<button
-  type="button-agregar"
-  class="btn btn-secondary"
-  (click)="agregarDiez()"
->
+<button type="button-agregar" class="btn btn-secondary" (click)="agregarDiez()">
   Agregar 10
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +57,11 @@
     />
   </svg>
 </button>
-<div class="mb-3 m-5"><h1>Lista de productos</h1></div>
+<div class="mb-3 m-5"><h1>Lista de productos</h1>
+  <div class="col-md-2">
+    <input class="form-control m-4" type="search" matInput placeholder="Buscar producto"  (keyup)="filtrar($event)" />
+  </div></div>
+
 
 <div class="grid-container">
   <div
@@ -72,23 +72,28 @@
   </div>
 
   <div class="card" *ngFor="let producto of listaFiltrada" style="width: 18rem">
-
-
     <ng-container *ngIf="producto">
       <img
-        [src]="producto?.fotoHashCode ? URL + 'ver-foto/' + producto.id + '?fotoHashCode=' + producto.fotoHashCode : '../../../assets/img/no-foto.jpg'"
+        [src]="
+          producto?.fotoHashCode
+            ? URL +
+              'ver-foto/' +
+              producto.id +
+              '?fotoHashCode=' +
+              producto.fotoHashCode
+            : '../../../assets/img/no-foto.jpg'
+        "
         class="card-img-top"
       />
     </ng-container>
-
 
     <div class="card-body">
       <h3 class="card-title">{{ producto.nombre }}</h3>
       <h5 class="card-text">
         {{ producto.precio | currency : "COP" : "symbol-narrow" : "1.0-0" }}
       </h5>
-      <h5>Cantidad disponible : {{producto.disponibles}}</h5>
-      <a  class="btn btn-primary" (click)="agregarAFactura(producto)"
+      <h5>Cantidad disponible : {{ producto.disponibles }}</h5>
+      <a class="btn btn-primary" (click)="agregarAFactura(producto)"
         >Agregar<svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

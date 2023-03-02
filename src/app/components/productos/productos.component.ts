@@ -91,15 +91,17 @@ export class ProductosComponent implements OnInit {
           this.productos.forEach((dl) => {
             if (dato.id === dl.id) {
               filtrado = false;
-              this.listaFiltrada.push(dl);
             }
           });
+          this.listaFiltrada.push(dato);
           return filtrado;
         });
-        this.totalRegistros = this.listaFiltrada.length;
+        this.totalRegistros = datos.length;
+        this.totalXPagina = datos.length;
       });
     } else {
       this.calcularRangos();
+      this.totalXPagina = 8;
     }
   }
 
@@ -122,7 +124,8 @@ export class ProductosComponent implements OnInit {
         ) {
           Swal.fire({
             icon: 'error',
-            text: 'No existen productos diponibles para agregar a la factura',
+            title: 'Error',
+            text: 'Ese producto no tiene unidades disponibles',
           });
         }
       }
@@ -142,14 +145,14 @@ export class ProductosComponent implements OnInit {
         this.service.agregarDiez().subscribe(() => {
           this.calcularRangos();
         });
-        Swal.fire('Agregados!', 'success');
+        Swal.fire('Agregados!','10 productos al stock');
       }
     });
   }
 
   restarCinco(productos: Producto[]) {
     Swal.fire({
-      text: 'Seguro quieres remover 5 productos a cada stock producto?',
+      text: 'Seguro quieres remover 5 productos a cada stock de producto?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -160,7 +163,7 @@ export class ProductosComponent implements OnInit {
         this.service.restarCinco(productos).subscribe(() => {
           this.calcularRangos();
         });
-        Swal.fire('Removidos!', 'success');
+        Swal.fire('Removidos!','5 productos del stock');
       }
     });
   }

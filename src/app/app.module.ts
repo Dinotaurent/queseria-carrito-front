@@ -15,6 +15,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { ProductoFormComponent } from './components/productos/producto-form.component';
 import { FormsModule } from '@angular/forms';
 import { FacturaFormComponent } from './components/factura/factura-form.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { FacturaFormComponent } from './components/factura/factura-form.componen
     HttpClientModule,
     MatPaginatorModule,
     FormsModule,
+    MatTableModule,
     BrowserAnimationsModule
   ],
   providers: [FacturaService],

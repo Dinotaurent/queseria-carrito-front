@@ -1,1 +1,61 @@
-<p>factura-form works!</p>
+<button type="button-agregar" class="btn btn-secondary" routerLink="/productos">
+  Regresar
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke-width="1.5"
+    stroke="currentColor"
+    class="w-6 h-6"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
+    />
+  </svg>
+</button>
+
+<div class="mb-3 m-5">
+  <h1></h1>
+</div>
+<div class="container">
+  <form>
+    <div class="mb-3 m-5">
+      <label class="form-label" for="id"
+        ><h1>Factura #{{ model.id }}</h1></label
+      >
+    </div>
+    <div class="mb-3 m-4">
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let producto">{{ producto.nombre }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="precio">
+        <th mat-header-cell *matHeaderCellDef>Precio</th>
+        <td mat-cell *matCellDef="let producto">{{ producto.precio }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="eliminar">
+        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+        <td mat-cell *matCellDef="let estudiantes">
+          <button mat-raised-button color="warn" class="m-4">eliminar</button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="mostrarColumnasRegistrados"></tr>
+      <tr
+        mat-row
+        *matRowDef="let producto; columns: mostrarColumnasRegistrados"
+      ></tr>
+    </table>
+  </div>
+
+    <button type="submit" class="btn btn-primary mb-3 m-5">Guardar</button>
+  </form>
+</div>
