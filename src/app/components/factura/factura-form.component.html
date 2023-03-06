@@ -26,36 +26,94 @@
         ><h1>Factura #{{ model.id }}</h1></label
       >
     </div>
-    <div class="mb-3 m-4">
+    <div class="mb-3 m-4" *ngIf="!model.pagada">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Name Column -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef>Nombre</th>
+          <td mat-cell *matCellDef="let producto">{{ producto.nombre }}</td>
+        </ng-container>
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Weight Column -->
+        <ng-container matColumnDef="precio">
+          <th mat-header-cell *matHeaderCellDef>Precio</th>
+          <td mat-cell *matCellDef="let producto">{{ producto.precio | currency : "COP" : "symbol-narrow" : "1.0-0" }}</td>
+        </ng-container>
 
-      <!-- Name Column -->
-      <ng-container matColumnDef="nombre">
-        <th mat-header-cell *matHeaderCellDef>Nombre</th>
-        <td mat-cell *matCellDef="let producto">{{ producto.nombre }}</td>
-      </ng-container>
+        <ng-container matColumnDef="eliminar">
+          <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+          <td mat-cell *matCellDef="let producto">
+            <a class="btn btn-danger m-3" (click)="remover(producto)"
+              >Eliminar<svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+                />
+              </svg>
+            </a>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="mostrarColumnasRegistrados"></tr>
+        <tr
+          mat-row
+          *matRowDef="let producto; columns: mostrarColumnasRegistrados"
+        ></tr>
+      </table>
+    </div>
 
-      <!-- Weight Column -->
-      <ng-container matColumnDef="precio">
-        <th mat-header-cell *matHeaderCellDef>Precio</th>
-        <td mat-cell *matCellDef="let producto">{{ producto.precio }}</td>
-      </ng-container>
+    <div class="mb-3 m-4" *ngIf="model.pagada">
+      <table class="table table-bordered border-primary">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let producto of model.productos">
+          <tr>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.precio | currency : "COP" : "symbol-narrow" : "1.0-0"  }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-      <ng-container matColumnDef="eliminar">
-        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
-        <td mat-cell *matCellDef="let estudiantes">
-          <button mat-raised-button color="warn" class="m-4">eliminar</button>
-        </td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="mostrarColumnasRegistrados"></tr>
-      <tr
-        mat-row
-        *matRowDef="let producto; columns: mostrarColumnasRegistrados"
-      ></tr>
-    </table>
-  </div>
-
-    <button type="submit" class="btn btn-primary mb-3 m-5">Guardar</button>
+    <div class="mb-4 m-5">
+      <label class="form-label" for="id"
+        ><h3>
+          Total:
+          {{ model.total | currency : "COP" : "symbol-narrow" : "1.0-0" }}
+        </h3></label
+      >
+    </div>
+    <button *ngIf="!model.pagada"
+      type="submit"
+      class="btn btn-success m-5"
+      [disabled]="model.total == 0"
+      (click)="pagarFactura(model.id)"
+    >
+      Pagar factura<svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+    </button>
   </form>
 </div>

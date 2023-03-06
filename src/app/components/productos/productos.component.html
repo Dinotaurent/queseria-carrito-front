@@ -70,8 +70,7 @@
   >
     No existen productos registrados o no se pudo conectar a la base de datos
   </div>
-
-  <div class="card" *ngFor="let producto of listaFiltrada" style="width: 18rem">
+  <div class="card" *ngFor="let producto of listaFiltrada" [ngClass]="{'grayscale': producto.disponibles == 0}">
     <ng-container *ngIf="producto">
       <img
         [src]="

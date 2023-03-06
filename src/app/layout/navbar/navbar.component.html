@@ -34,8 +34,9 @@
           >
         </li>
       </ul>
-      <ng-container *ngIf="facturaId !== null">
+      <ng-container *ngIf="facturaId !== null && facturaEnCurso">
       <a [routerLink]="['/facturas/form', facturaId]" class="btn btn-outline-warning">
+        Carrito
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

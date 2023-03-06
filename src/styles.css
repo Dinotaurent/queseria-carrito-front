@@ -56,7 +56,7 @@ footer {
 
 nav {
   /* background-color: #3b3355; */
-  background: linear-gradient(90deg, #321212, #333d8a)
+  background: linear-gradient(90deg, #321212, #333d8a);
 }
 
 nav .navbar-brand {
@@ -120,6 +120,16 @@ a.navbar-brand:hover {
   background: linear-gradient(90deg, #2cd9ff, #7effb2);
   background-size: 400% 400%;
   animation: anim 2.8s infinite ease-in-out;
+  width: 18rem;
+}
+
+.grayscale {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease-in-out;
+}
+
+.grayscale:hover {
+  filter: grayscale(80%);
 }
 
 @keyframes anim {
@@ -134,10 +144,10 @@ a.navbar-brand:hover {
   }
 }
 
-.btn-primary{
+.btn-primary {
   background: linear-gradient(90deg, #003ab7, #489aff);
 }
-.btn-primary:hover{
+.btn-primary:hover {
   background: linear-gradient(90deg, #489aff, #104dd2);
 }
 
@@ -148,60 +158,58 @@ a.navbar-brand:hover {
   overflow: hidden;
 }
 
-button.btn-success{
+button.btn-success {
   margin: 20px 10px 2px 20px;
   background: linear-gradient(90deg, hsl(143, 76%, 63%), #0bc71d);
   color: black;
 }
 
-.btn-success:hover{
+.btn-success:hover {
   background: linear-gradient(90deg, #0bc71d, hsl(143, 76%, 63%));
 }
 
-
-button.btn-secondary{
+button.btn-secondary {
   margin: 20px 10px 2px 20px;
   background: linear-gradient(90deg, #2d205f, #06a9db);
   background-size: 400% 400%;
   animation: anim 2.8s infinite ease-in-out;
 }
 
-
 svg {
   width: 35px;
   height: 30px;
 }
 
-a.btn-primary{
+a.btn-primary {
   margin: 2px 2px 2px 2px;
 }
 
-a.btn-warning{
+a.btn-warning {
   margin: 2px 2px 2px 2px;
   background: linear-gradient(90deg, #ffbb00, #edf097);
 }
 
-.btn-warning:hover{
+.btn-warning:hover {
   background: linear-gradient(90deg, #edf097, #ffbb00);
 }
 
-a.btn-danger{
+a.btn-danger {
   margin: 2px 2px 2px 2px;
   background: linear-gradient(90deg, #ff4102bd, #fa1a55);
 }
 
-.btn-danger:hover{
+.btn-danger:hover {
   background: linear-gradient(90deg, #fa1a55, #ff4102bd);
 }
 
-a.btn-outline-warning{
-  background: linear-gradient(90deg, #ffbb00,  #ff5733);
+a.btn-outline-warning {
+  background: linear-gradient(90deg, #ffbb00, #ff5733);
   background-size: 400% 400%;
   animation: anim 2.8s infinite ease-in-out;
   color: black;
 }
 
-div.container2{
+div.container2 {
   position: fixed;
   bottom: 60px;
   /* height: 76px; */
@@ -209,27 +217,26 @@ div.container2{
   /* border: 10px solid red; */
 }
 
-div.paginador{
-
+div.paginador {
 }
 
-img.card-img-top{
+img.card-img-top {
   width: 286px;
   height: 215px;
 }
 
-div img.img-thumbnail{
+div img.img-thumbnail {
   width: 286px;
   height: 215px;
   border-radius: 30px;
 }
 
 div h1 {
-  color : #A9A6F0
+  color: #a9a6f0;
 }
 
-form{
-  color: #A6F0BF;
+form {
+  color: #a6f0bf;
   font-size: 18px;
   font-weight: 400;
   width: 85%;
@@ -238,3 +245,8 @@ form{
 }
 
 
+
+table.table-bordered.border-primary {
+  color: white;
+  border-style: dashed;
+}

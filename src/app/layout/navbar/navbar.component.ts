@@ -10,8 +10,8 @@ import Swal from 'sweetalert2';
   templateUrl: './navbar.component.html',
 })
 export class NavbarComponent implements OnInit {
-  // model = new Factura();
   facturaId: number;
+  facturaEnCurso: boolean;
   constructor(private facturaService: FacturaService) {}
 
   ngOnInit(): void {
@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit {
       .pipe(
         tap((facturaId) => {
           this.facturaId = facturaId;
+          this.facturaEnCurso = this.facturaService.facturaEnCurso;
         })
       )
       .subscribe();
