@@ -55,8 +55,8 @@ footer {
 }
 
 nav {
-  /* background-color: #3b3355; */
-  background: linear-gradient(90deg, #321212, #333d8a);
+  /* background: linear-gradient(90deg, #321212, #333d8a); */
+  background: linear-gradient(90deg, #272727, #321212);
 }
 
 nav .navbar-brand {
@@ -244,9 +244,59 @@ form {
   border-radius: 30px;
 }
 
-
-
 table.table-bordered.border-primary {
   color: white;
   border-style: dashed;
+}
+
+div .div1 {
+  color: #f09456;
+  font-size: 24px;
+  font-weight: 400;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000;
+}
+
+div.div1 h1 {
+  color: #f8b43f;
+  font-size: 60px;
+  font-weight: 400;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000;
+}
+
+div .div2 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 400;
+  text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000;
+  background: linear-gradient(90deg, #62f78c, #7700ff);
+  background-size: 400% 400%;
+  animation: anim 2.8s infinite ease-in-out;
+}
+
+div.div2 h3 {
+  color: #ffffff;
+  font-weight: 400;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000;
+}
+
+div .div3 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 400;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000;
+  background: linear-gradient(90deg, #4c00ff, #c0ce80);
+  background-size: 400% 400%;
+  animation: anim 2.8s infinite ease-in-out;
+}
+
+div.div3 h3 {
+  color: #ffffff;
+  font-weight: 400;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000;
 }
